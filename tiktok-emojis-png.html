@@ -118,13 +118,37 @@
             display: block;
             margin-top: 10px; /* 上方间距 */
         }
-        .item:active {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="5" height="5" fill="black"/><rect x="5" y="5" width="5" height="5" fill="black"/><rect x="5" width="5" height="5" fill="white"/><rect y="5" width="5" height="5" fill="white"/></svg>');
-            background-size: 20px 20px; /* 设置背景图案大小 */
-        }
+        
+       
+        .item:hover {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="5" height="5" fill="#333"/><rect x="5" y="5" width="5" height="5" fill="#333"/><rect x="5" width="5" height="5" fill="#eee"/><rect y="5" width="5" height="5" fill="#eee"/></svg>');
+    background-size: 20px 20px; /* 设置背景图案大小 */
+}
         .download-link {
         display: none;
     }
+
+    footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+    border-top: 1px solid #dee2e6;
+  }
+
+  footer p {
+    margin: 5px 0;
+  }
+
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
     </style>
 </head>
 <body>
@@ -336,5 +360,25 @@
 
         window.onload = createGallery;
     </script>
+    <footer>
+        <p>&copy; 2024 TikTok Emojis List. All rights reserved.</p>
+        <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
+        <p>
+          <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
+          <a href="./terms-of-service.html" target="_blank">Terms of Service</a> | 
+          <a href="./contact-us.html" target="_blank">Contact Us</a>
+        </p>
+      </footer>
+      <div style="display: none;">
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4S43MW9RC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-D4S43MW9RC');
+    </script>
+    </div>
 </body>
 </html>
