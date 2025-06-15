@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Emoji - TikTok Emojis</title>
+    <meta name="description" content="Learn about the Cool emoji on TikTok, its meaning, usage, and related emojis. Copy and download the Cool emoji for your TikTok content.">
+    <link rel="canonical" href="https://tiktok-emojis.com/cool.html">
+    <link rel="shortcut icon" href="./static/favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .navbar a, .navbar .dropdown .dropbtn {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 表情展示区样式 */
+        .emoji-display {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .emoji-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        .emoji-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .category-tags {
+            margin: 15px 0;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 14px;
+            color: #495057;
+        }
+
+        /* 按钮样式 */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* 内容区域样式 */
+        .content-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* 相关表情样式 */
+        .related-emojis {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .related-emoji {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .related-emoji:hover {
+            transform: translateY(-3px);
+        }
+
+        .related-emoji img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 8px;
+        }
+
+        /* 提示框样式 */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* 页脚样式 */
+        footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .emoji-display {
+                padding: 15px;
+            }
+
+            .emoji-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Categories ▼</button>
+            <div class="dropdown-content">
+                <a href="emotion.html">😊 Emotion Emojis</a>
+                <a href="character.html">🎭 Character Emojis</a>
+                <a href="function.html">⚡ Function Emojis</a>
+            </div>
+        </div>
+        <a href="tiktok-emojis-png.html">PNG Download</a>
+        <div class="dropdown">
+            <button class="dropbtn">🚀 Tools ▼</button>
+            <div class="dropdown-content">
+                <a href="tools.html">🏠 Tools Overview</a>
+                <a href="tiktok-emoji-quiz.html">🧠 Emoji Quiz</a>
+                <a href="tiktok-emoji-maker.html">🎨 Emoji Maker</a>
+                <a href="tiktok-emoji-memes.html">😂 Emoji Memes</a>
+                <a href="tiktok-emoji-trends.html">📈 Emoji Trends</a>
+            </div>
+        </div>
+        <a href="guide.html">Guide</a>
+    </div>
+
+    <div class="emoji-display">
+        <img src="./static/cool.png" alt="Cool Emoji" class="emoji-image">
+        <h1 class="emoji-title">Cool Emoji</h1>
+        <div class="category-tags">
+            <span class="category-tag">Emotion</span>
+<span class="category-tag">Positive</span>
+<span class="category-tag">Expression</span>
+        </div>
+        <div class="action-buttons">
+            <button class="btn" onclick="copyEmojiCode()">Copy Code [cool]</button>
+            <button class="btn" onclick="downloadImage()">Download</button>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Meaning</h2>
+        <p>The cool emoji represents being cool, calm, or collected.</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li>Showing being cool</li>
+<li>Expressing calmness</li>
+<li>Reacting to cool content</li>
+<li>Showing being collected</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Usage Tips</h2>
+        <p>Here are some common ways to use the Cool emoji on TikTok:</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li>In comments to show being cool</li>
+<li>In captions to express calmness</li>
+<li>In reaction to cool content</li>
+<li>In cool messages</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Related Emojis</h2>
+        <div class="related-emojis">
+            
+                <div class="related-emoji" onclick="window.location.href='proud.html'">
+                    <img src="./static/proud.png" alt="Proud Emoji">
+                    <p>Proud</p>
+                </div>
+            
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <footer>
+        <p>&copy; 2025 TikTok Emojis List. All rights reserved.</p>
+        <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
+        <p>
+            <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
+            <a href="./terms-of-service.html" target="_blank">Terms of Service</a> | 
+            <a href="./contact-us.html" target="_blank">Contact Us</a>
+        </p>
+    </footer>
+
+    <script>
+        // 显示提示信息
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // 复制表情代码
+        function copyEmojiCode() {
+            navigator.clipboard.writeText('[cool]').then(() => {
+                showToast('Emoji code copied!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast('Failed to copy code');
+            });
+        }
+
+        // 下载图片
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.href = './static/cool.png';
+            link.download = 'cool-emoji.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Download started!');
+        }
+    </script>
+
+    <div style="display: none;">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4S43MW9RC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D4S43MW9RC');
+        </script>
+    </div>
+</body>
+</html>

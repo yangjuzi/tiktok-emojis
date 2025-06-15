@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Emoji Memes - Viral Emoji Combinations</title>
+    <meta name="description" content="Discover viral TikTok emoji memes and funny emoji combinations. Get inspired by popular emoji trends and create your own memes!">
+    <meta name="keywords" content="tiktok emoji memes, viral emoji combinations, funny tiktok emojis, emoji meme trends, popular emoji memes">
+    <link rel="canonical" href="https://tiktok-emojis.com/tiktok-emoji-memes.html">
+    <link rel="shortcut icon" href="./static/favicon.png">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .navbar a, .navbar .dropdown .dropbtn {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .memes-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        .memes-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .meme-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .meme-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .meme-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .meme-emojis {
+            font-size: 24px;
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .meme-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .meme-popularity {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .popularity-stars {
+            color: #ffc107;
+        }
+        
+        .meme-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .trending-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .trending-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .trending-memes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .trending-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .category-section {
+            margin: 40px 0;
+        }
+        
+        .category-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Categories ▼</button>
+            <div class="dropdown-content">
+                <a href="emotion.html">😊 Emotion Emojis</a>
+                <a href="character.html">🎭 Character Emojis</a>
+                <a href="function.html">⚡ Function Emojis</a>
+            </div>
+        </div>
+        <a href="tiktok-emojis-png.html">PNG Download</a>
+        <div class="dropdown">
+            <button class="dropbtn">🚀 Tools ▼</button>
+            <div class="dropdown-content">
+                <a href="tools.html">🏠 Tools Overview</a>
+                <a href="tiktok-emoji-quiz.html">🧠 Emoji Quiz</a>
+                <a href="tiktok-emoji-maker.html">🎨 Emoji Maker</a>
+                <a href="tiktok-emoji-memes.html">😂 Emoji Memes</a>
+                <a href="tiktok-emoji-trends.html">📈 Emoji Trends</a>
+            </div>
+        </div>
+        <a href="guide.html">Guide</a>
+    </div>
+
+    <div class="memes-container">
+        <div class="memes-header">
+            <h1>🔥 TikTok Emoji Memes</h1>
+            <p>Discover the most viral and hilarious emoji combinations that are taking TikTok by storm!</p>
+        </div>
+
+        <div class="trending-section">
+            <h2 class="trending-title">🚀 Trending Now</h2>
+            <div class="trending-memes">
+                <div class="trending-item">
+                    <div style="font-size: 30px; margin-bottom: 10px;">[cry] + [laugh]</div>
+                    <div>Crying from laughter</div>
+                </div>
+                <div class="trending-item">
+                    <div style="font-size: 30px; margin-bottom: 10px;">[angry] + [cute]</div>
+                    <div>Angry but adorable</div>
+                </div>
+                <div class="trending-item">
+                    <div style="font-size: 30px; margin-bottom: 10px;">[thinking] + [confused]</div>
+                    <div>Big brain time</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">😂 Comedy Gold Memes</h2>
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <div class="meme-title">The "I'm Fine" Meme</div>
+                    <div class="meme-emojis">[smile] + [cry] + [angry]</div>
+                    <div class="meme-description">When you say you're fine but you're actually dying inside. Perfect for those relatable moments!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[smile][cry][angry]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">relatable</span>
+                        <span class="tag">mood</span>
+                        <span class="tag">viral</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Confused Math Lady</div>
+                    <div class="meme-emojis">[thinking] + [speechless] + [stun]</div>
+                    <div class="meme-description">When someone explains something but you're still completely lost. The TikTok version of the confused math lady meme!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[thinking][speechless][stun]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">confusion</span>
+                        <span class="tag">school</span>
+                        <span class="tag">funny</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Glow Up Transformation</div>
+                    <div class="meme-emojis">[awkward] → [cool] → [proud]</div>
+                    <div class="meme-description">The classic before and after transformation sequence. Perfect for glow-up videos and confidence posts!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[awkward][cool][proud]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">transformation</span>
+                        <span class="tag">confidence</span>
+                        <span class="tag">glow-up</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">💕 Relationship Memes</h2>
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <div class="meme-title">Crush Spotted</div>
+                    <div class="meme-emojis">[blink] + [blush] + [loveface]</div>
+                    <div class="meme-description">When you see your crush and try to play it cool but fail miserably. The ultimate crush reaction combo!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[blink][blush][loveface]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">crush</span>
+                        <span class="tag">love</span>
+                        <span class="tag">awkward</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Third Wheel Energy</div>
+                    <div class="meme-emojis">[awkward] + [facewithrollingeyes] + [speechless]</div>
+                    <div class="meme-description">When you're hanging out with a couple and they start being all lovey-dovey. The perfect third wheel expression!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[awkward][facewithrollingeyes][speechless]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">third-wheel</span>
+                        <span class="tag">single</span>
+                        <span class="tag">relatable</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Simp Mode Activated</div>
+                    <div class="meme-emojis">[lovely] + [drool] + [yummy]</div>
+                    <div class="meme-description">When someone is being extra nice to their crush. The modern way to call out simp behavior!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[lovely][drool][yummy]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">simp</span>
+                        <span class="tag">crush</span>
+                        <span class="tag">funny</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">🎭 Mood Memes</h2>
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <div class="meme-title">Monday Morning Mood</div>
+                    <div class="meme-emojis">[nap] + [cry] + [angry]</div>
+                    <div class="meme-description">The universal Monday morning feeling. When you'd rather stay in bed than face the world!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[nap][cry][angry]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">monday</span>
+                        <span class="tag">tired</span>
+                        <span class="tag">relatable</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Friday Feeling</div>
+                    <div class="meme-emojis">[excited] + [happy] + [joyful]</div>
+                    <div class="meme-description">When it's finally Friday and the weekend is here! Pure joy and excitement in emoji form.</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[excited][happy][joyful]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">friday</span>
+                        <span class="tag">weekend</span>
+                        <span class="tag">happy</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Exam Season Survivor</div>
+                    <div class="meme-emojis">[stun] + [weep] + [nap]</div>
+                    <div class="meme-description">The aftermath of exam season. Exhausted, emotional, and ready to sleep for a week!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[stun][weep][nap]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">exams</span>
+                        <span class="tag">student</span>
+                        <span class="tag">tired</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">🍕 Food Memes</h2>
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <div class="meme-title">Midnight Snack Attack</div>
+                    <div class="meme-emojis">[greedy] + [yummy] + [evil]</div>
+                    <div class="meme-description">When you're supposed to be on a diet but the fridge is calling your name at 2 AM!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[greedy][yummy][evil]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">food</span>
+                        <span class="tag">diet</span>
+                        <span class="tag">midnight</span>
+                    </div>
+                </div>
+
+                <div class="meme-card">
+                    <div class="meme-title">Food Coma</div>
+                    <div class="meme-emojis">[yummy] + [complacent] + [nap]</div>
+                    <div class="meme-description">After eating way too much delicious food and now you need a nap. The classic food coma experience!</div>
+                    <div class="meme-popularity">
+                        <div class="popularity-stars">⭐⭐⭐⭐</div>
+                        <button class="btn" onclick="copyToClipboard(this, '[yummy][complacent][nap]')">Copy</button>
+                    </div>
+                    <div class="meme-tags">
+                        <span class="tag">food</span>
+                        <span class="tag">full</span>
+                        <span class="tag">sleepy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(button, text) {
+            navigator.clipboard.writeText(text).then(function() {
+                button.textContent = 'Copied!';
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 TikTok Emojis List. All rights reserved.</p>
+        <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
+        <p>
+            <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
+            <a href="./terms-of-service.html" target="_blank">Terms of Service</a> | 
+            <a href="./contact-us.html" target="_blank">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html> 

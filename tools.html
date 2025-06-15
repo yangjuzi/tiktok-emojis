@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Emoji Tools - Interactive Tools Collection</title>
+    <meta name="description" content="Explore our collection of interactive TikTok emoji tools including quiz, maker, memes, and trends. Enhance your emoji experience!">
+    <meta name="keywords" content="tiktok emoji tools, emoji quiz, emoji maker, emoji memes, emoji trends, interactive tools">
+    <link rel="canonical" href="https://tiktok-emojis.com/tools.html">
+    <link rel="shortcut icon" href="./static/favicon.png">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .navbar a, .navbar .dropdown .dropbtn {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .tools-header {
+            text-align: center;
+            margin: 40px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .tools-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tools-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .tool-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        
+        .tool-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .tool-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .tool-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .tool-features li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .tool-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .tool-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        .tool-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: #667eea;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: white;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+            border-radius: 10px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Categories ▼</button>
+            <div class="dropdown-content">
+                <a href="emotion.html">😊 Emotion Emojis</a>
+                <a href="character.html">🎭 Character Emojis</a>
+                <a href="function.html">⚡ Function Emojis</a>
+            </div>
+        </div>
+        <a href="tiktok-emojis-png.html">PNG Download</a>
+        <div class="dropdown">
+            <button class="dropbtn">🚀 Tools ▼</button>
+            <div class="dropdown-content">
+                <a href="tools.html">🏠 Tools Overview</a>
+                <a href="tiktok-emoji-quiz.html">🧠 Emoji Quiz</a>
+                <a href="tiktok-emoji-maker.html">🎨 Emoji Maker</a>
+                <a href="tiktok-emoji-memes.html">😂 Emoji Memes</a>
+                <a href="tiktok-emoji-trends.html">📈 Emoji Trends</a>
+            </div>
+        </div>
+        <a href="guide.html">Guide</a>
+    </div>
+
+    <div class="tools-header">
+        <h1>🚀 TikTok Emoji Tools</h1>
+        <p>Discover our collection of interactive tools designed to enhance your TikTok emoji experience. From quizzes to creators, we've got everything you need!</p>
+    </div>
+
+    <div class="tools-grid">
+        <a href="tiktok-emoji-quiz.html" class="tool-card">
+            <div class="tool-badge">POPULAR</div>
+            <span class="tool-icon">🧠</span>
+            <div class="tool-title">Emoji Quiz</div>
+            <div class="tool-description">Test your knowledge of TikTok emojis with our interactive quiz featuring 10 challenging questions.</div>
+            <ul class="tool-features">
+                <li>10 carefully crafted questions</li>
+                <li>Real-time scoring system</li>
+                <li>Progress tracking</li>
+                <li>Detailed explanations</li>
+            </ul>
+            <div class="tool-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Questions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5min</div>
+                    <div class="stat-label">Duration</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">★★★★★</div>
+                    <div class="stat-label">Fun Level</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="tiktok-emoji-maker.html" class="tool-card">
+            <div class="tool-badge">CREATIVE</div>
+            <span class="tool-icon">🎨</span>
+            <div class="tool-title">Emoji Maker</div>
+            <div class="tool-description">Create custom emoji combinations with our intuitive drag-and-drop interface.</div>
+            <ul class="tool-features">
+                <li>Visual emoji palette</li>
+                <li>Category filtering</li>
+                <li>Save combinations</li>
+                <li>One-click copying</li>
+            </ul>
+            <div class="tool-stats">
+                <div class="stat-item">
+                    <div class="stat-number">48+</div>
+                    <div class="stat-label">Emojis</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Combinations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">★★★★★</div>
+                    <div class="stat-label">Creativity</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="tiktok-emoji-memes.html" class="tool-card">
+            <div class="tool-badge">VIRAL</div>
+            <span class="tool-icon">😂</span>
+            <div class="tool-title">Emoji Memes</div>
+            <div class="tool-description">Explore the funniest emoji combinations and viral memes trending on TikTok.</div>
+            <ul class="tool-features">
+                <li>Viral meme collections</li>
+                <li>Category filtering</li>
+                <li>Usage examples</li>
+                <li>Popularity ratings</li>
+            </ul>
+            <div class="tool-stats">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Memes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">★★★★★</div>
+                    <div class="stat-label">Humor</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="tiktok-emoji-trends.html" class="tool-card">
+            <div class="tool-badge">TRENDING</div>
+            <span class="tool-icon">📈</span>
+            <div class="tool-title">Emoji Trends</div>
+            <div class="tool-description">Stay updated with the latest emoji trends, analytics, and popularity rankings.</div>
+            <ul class="tool-features">
+                <li>Real-time trend data</li>
+                <li>Popularity rankings</li>
+                <li>Usage analytics</li>
+                <li>Rising star predictions</li>
+            </ul>
+            <div class="tool-stats">
+                <div class="stat-item">
+                    <div class="stat-number">Live</div>
+                    <div class="stat-label">Data</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Weekly</div>
+                    <div class="stat-label">Updates</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">★★★★★</div>
+                    <div class="stat-label">Insights</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready to Explore?</h2>
+        <p>Choose your favorite tool and start your TikTok emoji journey today!</p>
+        <div class="cta-buttons">
+            <a href="tiktok-emoji-quiz.html" class="cta-btn">🧠 Take Quiz</a>
+            <a href="tiktok-emoji-maker.html" class="cta-btn">🎨 Create Combos</a>
+            <a href="tiktok-emoji-memes.html" class="cta-btn">😂 View Memes</a>
+            <a href="tiktok-emoji-trends.html" class="cta-btn">📈 Check Trends</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TikTok Emojis List. All rights reserved.</p>
+        <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
+        <p>
+            <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
+            <a href="./terms-of-service.html" target="_blank">Terms of Service</a> | 
+            <a href="./contact-us.html" target="_blank">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html> 

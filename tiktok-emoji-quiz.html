@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Emoji Quiz - Test Your Knowledge</title>
+    <meta name="description" content="Test your knowledge of TikTok emojis with our interactive quiz. Learn emoji meanings and codes while having fun!">
+    <meta name="keywords" content="tiktok emoji quiz, tiktok emoji test, tiktok emoji game, emoji knowledge test, tiktok emoji meanings">
+    <link rel="canonical" href="https://tiktok-emojis.com/tiktok-emoji-quiz.html">
+    <link rel="shortcut icon" href="./static/favicon.png">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .navbar a, .navbar .dropdown .dropbtn {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .question-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .question-container.active {
+            display: block;
+        }
+        
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .emoji-display {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .emoji-display img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .option {
+            padding: 15px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            border-color: #4CAF50;
+            background: #f0f8f0;
+        }
+        
+        .option.selected {
+            border-color: #4CAF50;
+            background: #e8f5e8;
+        }
+        
+        .option.correct {
+            border-color: #4CAF50;
+            background: #d4edda;
+        }
+        
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .quiz-controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .progress {
+            height: 100%;
+            background: #4CAF50;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        
+        .result-container {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .result-container.show {
+            display: block;
+        }
+        
+        .result-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+        
+        .result-message {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Categories ▼</button>
+            <div class="dropdown-content">
+                <a href="emotion.html">😊 Emotion Emojis</a>
+                <a href="character.html">🎭 Character Emojis</a>
+                <a href="function.html">⚡ Function Emojis</a>
+            </div>
+        </div>
+        <a href="tiktok-emojis-png.html">PNG Download</a>
+        <div class="dropdown">
+            <button class="dropbtn">🚀 Tools ▼</button>
+            <div class="dropdown-content">
+                <a href="tools.html">🏠 Tools Overview</a>
+                <a href="tiktok-emoji-quiz.html">🧠 Emoji Quiz</a>
+                <a href="tiktok-emoji-maker.html">🎨 Emoji Maker</a>
+                <a href="tiktok-emoji-memes.html">😂 Emoji Memes</a>
+                <a href="tiktok-emoji-trends.html">📈 Emoji Trends</a>
+            </div>
+        </div>
+        <a href="guide.html">Guide</a>
+    </div>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>TikTok Emoji Quiz</h1>
+            <p>Test your knowledge of TikTok emojis! Can you identify the correct emoji codes and meanings?</p>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="score-display">
+                Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span> | Score: <span id="currentScore">0</span>
+            </div>
+        </div>
+
+        <div id="quizQuestions">
+            <!-- Questions will be generated by JavaScript -->
+        </div>
+
+        <div class="quiz-controls">
+            <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+            <button class="btn" id="restartBtn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+        </div>
+
+        <div class="result-container" id="resultContainer">
+            <h2>Quiz Complete!</h2>
+            <div class="result-score" id="finalScore">0/10</div>
+            <div class="result-message" id="resultMessage"></div>
+            <p>Want to learn more about TikTok emojis? Check out our <a href="guide.html">complete guide</a>!</p>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What does this emoji represent?",
+                emoji: "smile",
+                options: ["[smile]", "[happy]", "[laugh]", "[joy]"],
+                correct: 0,
+                explanation: "This is the smile emoji, represented by [smile]"
+            },
+            {
+                question: "Which code shows a crying emotion?",
+                emoji: "cry",
+                options: ["[sad]", "[cry]", "[tears]", "[weep]"],
+                correct: 1,
+                explanation: "The crying emoji is represented by [cry]"
+            },
+            {
+                question: "What emoji represents anger?",
+                emoji: "angry",
+                options: ["[mad]", "[rage]", "[angry]", "[furious]"],
+                correct: 2,
+                explanation: "The angry emoji is represented by [angry]"
+            },
+            {
+                question: "Which emoji shows thinking or contemplation?",
+                emoji: "thinking",
+                options: ["[think]", "[wondering]", "[thinking]", "[confused]"],
+                correct: 2,
+                explanation: "The thinking emoji is represented by [thinking]"
+            },
+            {
+                question: "What does this cute emoji represent?",
+                emoji: "cute",
+                options: ["[adorable]", "[sweet]", "[cute]", "[lovely]"],
+                correct: 2,
+                explanation: "This cute emoji is represented by [cute]"
+            },
+            {
+                question: "Which emoji represents being cool or confident?",
+                emoji: "cool",
+                options: ["[awesome]", "[cool]", "[confident]", "[stylish]"],
+                correct: 1,
+                explanation: "The cool emoji is represented by [cool]"
+            },
+            {
+                question: "What emoji shows surprise or shock?",
+                emoji: "surprised",
+                options: ["[shocked]", "[amazed]", "[surprised]", "[wow]"],
+                correct: 2,
+                explanation: "The surprised emoji is represented by [surprised]"
+            },
+            {
+                question: "Which emoji represents laughing with tears?",
+                emoji: "laughwithtears",
+                options: ["[lol]", "[laughing]", "[laughwithtears]", "[hilarious]"],
+                correct: 2,
+                explanation: "Laughing with tears is represented by [laughwithtears]"
+            },
+            {
+                question: "What does this mischievous emoji represent?",
+                emoji: "wicked",
+                options: ["[evil]", "[wicked]", "[naughty]", "[mischief]"],
+                correct: 1,
+                explanation: "The mischievous emoji is represented by [wicked]"
+            },
+            {
+                question: "Which emoji shows embarrassment or awkwardness?",
+                emoji: "awkward",
+                options: ["[embarrassed]", "[shy]", "[awkward]", "[uncomfortable]"],
+                correct: 2,
+                explanation: "The awkward emoji is represented by [awkward]"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+
+        function initQuiz() {
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            const questionsContainer = document.getElementById('quizQuestions');
+            questionsContainer.innerHTML = '';
+
+            const questionData = quizData[index];
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-container active';
+            
+            questionDiv.innerHTML = `
+                <div class="question">${questionData.question}</div>
+                <div class="emoji-display">
+                    <img src="./static/${questionData.emoji}.png" alt="${questionData.emoji} emoji">
+                </div>
+                <div class="options" id="options-${index}">
+                    ${questionData.options.map((option, i) => 
+                        `<div class="option" onclick="selectAnswer(${i})" data-index="${i}">${option}</div>`
+                    ).join('')}
+                </div>
+            `;
+            
+            questionsContainer.appendChild(questionDiv);
+            
+            // Update progress
+            const progress = ((index + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = index + 1;
+            document.getElementById('currentScore').textContent = score;
+            
+            selectedAnswer = null;
+            document.getElementById('nextBtn').disabled = true;
+        }
+
+        function selectAnswer(answerIndex) {
+            if (selectedAnswer !== null) return; // Prevent multiple selections
+            
+            selectedAnswer = answerIndex;
+            const options = document.querySelectorAll('.option');
+            const correctAnswer = quizData[currentQuestionIndex].correct;
+            
+            options.forEach((option, index) => {
+                if (index === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== correctAnswer) {
+                    option.classList.add('incorrect');
+                }
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (answerIndex === correctAnswer) {
+                score++;
+            }
+            
+            document.getElementById('nextBtn').disabled = false;
+            document.getElementById('currentScore').textContent = score;
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quizQuestions').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('restartBtn').style.display = 'inline-block';
+            
+            const resultContainer = document.getElementById('resultContainer');
+            const finalScore = document.getElementById('finalScore');
+            const resultMessage = document.getElementById('resultMessage');
+            
+            finalScore.textContent = `${score}/${quizData.length}`;
+            
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = "🎉 Excellent! You're a TikTok emoji expert!";
+            } else if (percentage >= 70) {
+                message = "👏 Great job! You know your TikTok emojis well!";
+            } else if (percentage >= 50) {
+                message = "👍 Good effort! Keep practicing with TikTok emojis!";
+            } else {
+                message = "📚 Keep learning! Check out our emoji guide to improve!";
+            }
+            
+            resultMessage.textContent = message;
+            resultContainer.classList.add('show');
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('quizQuestions').style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+            document.getElementById('restartBtn').style.display = 'none';
+            document.getElementById('resultContainer').classList.remove('show');
+            
+            showQuestion(0);
+        }
+
+        // Initialize quiz when page loads
+        window.onload = initQuiz;
+    </script>
+
+    <footer>
+        <p>&copy; 2025 TikTok Emojis List. All rights reserved.</p>
+        <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
+        <p>
+            <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
+            <a href="./terms-of-service.html" target="_blank">Terms of Service</a> | 
+            <a href="./contact-us.html" target="_blank">Contact Us</a>
+        </p>
+    </footer>
+</body>
+</html> 

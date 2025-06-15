@@ -53,6 +53,23 @@
       cursor: pointer;
       border-radius: 3px;
     }
+    .emoji-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s;
+    }
+    .emoji-link:hover {
+      transform: scale(1.1);
+    }
+    .emoji-link img {
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.2s;
+    }
+    .emoji-link:hover img {
+      transform: scale(1.1);
+    }
 	footer {
     margin-top: 40px;
     padding: 20px 0;
@@ -133,34 +150,115 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  /* 工具展示区域样式 */
+  .tools-showcase {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    margin: 30px 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  .tools-showcase h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  .tools-showcase p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  .tool-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    color: white;
+    text-decoration: none;
+  }
+
+  .tool-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .tool-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .tool-description {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.4;
+  }
+
+  .new-badge {
+    background: #ff4757;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
   </style>
  </head>
  <body>
   <div class="navbar">
-    <a href="https://tiktok-emojis.com/index.html">Home</a>
-    <!--<div class="dropdown">
-      <button class="dropbtn">Category 
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">TikTok Emojis Cute</a>
-        <a href="#">TikTok Emojis Happy</a>
-        <a href="#">TikTok Emojis Proud</a>
-      </div>
-    </div> 
+    <a href="index.html">Home</a>
     <div class="dropdown">
-      <button class="dropbtn">Download 
-        <i class="fa fa-caret-down"></i>
-      </button>
+      <button class="dropbtn">Categories ▼</button>
       <div class="dropdown-content">
-        
-        <a href="#">TikTok Emojis Transparent</a>
-        <a href="#">TikTok Emojis PNG</a>
+        <a href="emotion.html">😊 Emotion Emojis</a>
+        <a href="character.html">🎭 Character Emojis</a>
+        <a href="function.html">⚡ Function Emojis</a>
       </div>
-    </div> 
-    <a href="#">Generator</a>
-    <a href="#">Blog</a>-->
-    <a href="https://tiktok-emojis.com/tiktok-emojis-png.html">Tiktok Emojis PNG</a>
+    </div>
+    <a href="tiktok-emojis-png.html">PNG Download</a>
+    <div class="dropdown">
+      <button class="dropbtn">🚀 Tools ▼</button>
+      <div class="dropdown-content">
+        <a href="tools.html">🏠 Tools Overview</a>
+        <a href="tiktok-emoji-quiz.html">🧠 Emoji Quiz</a>
+        <a href="tiktok-emoji-maker.html">🎨 Emoji Maker</a>
+        <a href="tiktok-emoji-memes.html">😂 Emoji Memes</a>
+        <a href="tiktok-emoji-trends.html">📈 Emoji Trends</a>
+      </div>
+    </div>
+    <a href="guide.html">Guide</a>
   </div>
 
   <h1>TikTok Emojis List</h1>
@@ -169,237 +267,270 @@
   <table>
     <tbody>
       <tr>
-        <td><img alt="tiktok emojis smile" src="./static/smile.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="smile.html" class="emoji-link"><img alt="tiktok emojis smile" src="./static/smile.png" style="width: 60px; height: 60px;"></a></td>
         <td>[smile]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[smile]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis happy" src="./static/happy.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="happy.html" class="emoji-link"><img alt="tiktok emojis happy" src="./static/happy.png" style="width: 60px; height: 60px;"></a></td>
         <td>[happy]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[happy]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis angry" src="./static/angry.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="angry.html" class="emoji-link"><img alt="tiktok emojis angry" src="./static/angry.png" style="width: 60px; height: 60px;"></a></td>
         <td>[angry]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[angry]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis cry" src="./static/cry.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="cry.html" class="emoji-link"><img alt="tiktok emojis cry" src="./static/cry.png" style="width: 60px; height: 60px;"></a></td>
         <td>[cry]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[cry]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis embarrassed" src="./static/embarrassed.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="embarrassed.html" class="emoji-link"><img alt="tiktok emojis embarrassed" src="./static/embarrassed.png" style="width: 60px; height: 60px;"></a></td>
         <td>[embarrassed]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[embarrassed]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis surprised" src="./static/surprised.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="surprised.html" class="emoji-link"><img alt="tiktok emojis surprised" src="./static/surprised.png" style="width: 60px; height: 60px;"></a></td>
         <td>[surprised]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[surprised]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis wronged" src="./static/wronged.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="wronged.html" class="emoji-link"><img alt="tiktok emojis wronged" src="./static/wronged.png" style="width: 60px; height: 60px;"></a></td>
         <td>[wronged]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[wronged]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis shout" src="./static/shout.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="shout.html" class="emoji-link"><img alt="tiktok emojis shout" src="./static/shout.png" style="width: 60px; height: 60px;"></a></td>
         <td>[shout]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[shout]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis flushed" src="./static/flushed.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="flushed.html" class="emoji-link"><img alt="tiktok emojis flushed" src="./static/flushed.png" style="width: 60px; height: 60px;"></a></td>
         <td>[flushed]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[flushed]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis yummy" src="./static/yummy.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="yummy.html" class="emoji-link"><img alt="tiktok emojis yummy" src="./static/yummy.png" style="width: 60px; height: 60px;"></a></td>
         <td>[yummy]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[yummy]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis complacent" src="./static/complacent.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="complacent.html" class="emoji-link"><img alt="tiktok emojis complacent" src="./static/complacent.png" style="width: 60px; height: 60px;"></a></td>
         <td>[complacent]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[complacent]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis drool" src="./static/drool.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="drool.html" class="emoji-link"><img alt="tiktok emojis drool" src="./static/drool.png" style="width: 60px; height: 60px;"></a></td>
         <td>[drool]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[drool]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis scream" src="./static/scream.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="scream.html" class="emoji-link"><img alt="tiktok emojis scream" src="./static/scream.png" style="width: 60px; height: 60px;"></a></td>
         <td>[scream]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[scream]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis weep" src="./static/weep.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="weep.html" class="emoji-link"><img alt="tiktok emojis weep" src="./static/weep.png" style="width: 60px; height: 60px;"></a></td>
         <td>[weep]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[weep]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis speechless" src="./static/speechless.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="speechless.html" class="emoji-link"><img alt="tiktok emojis speechless" src="./static/speechless.png" style="width: 60px; height: 60px;"></a></td>
         <td>[speechless]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[speechless]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis funnyface" src="./static/funnyface.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="funnyface.html" class="emoji-link"><img alt="tiktok emojis funnyface" src="./static/funnyface.png" style="width: 60px; height: 60px;"></a></td>
         <td>[funnyface]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[funnyface]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis laughwithtears" src="./static/laughwithtears.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="laughwithtears.html" class="emoji-link"><img alt="tiktok emojis laughwithtears" src="./static/laughwithtears.png" style="width: 60px; height: 60px;"></a></td>
         <td>[laughwithtears]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[laughwithtears]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis wicked" src="./static/wicked.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="wicked.html" class="emoji-link"><img alt="tiktok emojis wicked" src="./static/wicked.png" style="width: 60px; height: 60px;"></a></td>
         <td>[wicked]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[wicked]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis facewithrollingeyes" src="./static/facewithrollingeyes.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="facewithrollingeyes.html" class="emoji-link"><img alt="tiktok emojis facewithrollingeyes" src="./static/facewithrollingeyes.png" style="width: 60px; height: 60px;"></a></td>
         <td>[facewithrollingeyes]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[facewithrollingeyes]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis sulk" src="./static/sulk.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="sulk.html" class="emoji-link"><img alt="tiktok emojis sulk" src="./static/sulk.png" style="width: 60px; height: 60px;"></a></td>
         <td>[sulk]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[sulk]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis thinking" src="./static/thinking.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="thinking.html" class="emoji-link"><img alt="tiktok emojis thinking" src="./static/thinking.png" style="width: 60px; height: 60px;"></a></td>
         <td>[thinking]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[thinking]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis lovely" src="./static/lovely.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="lovely.html" class="emoji-link"><img alt="tiktok emojis lovely" src="./static/lovely.png" style="width: 60px; height: 60px;"></a></td>
         <td>[lovely]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[lovely]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis greedy" src="./static/greedy.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="greedy.html" class="emoji-link"><img alt="tiktok emojis greedy" src="./static/greedy.png" style="width: 60px; height: 60px;"></a></td>
         <td>[greedy]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[greedy]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis wow" src="./static/wow.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="wow.html" class="emoji-link"><img alt="tiktok emojis wow" src="./static/wow.png" style="width: 60px; height: 60px;"></a></td>
         <td>[wow]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[wow]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis joyful" src="./static/joyful.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="joyful.html" class="emoji-link"><img alt="tiktok emojis joyful" src="./static/joyful.png" style="width: 60px; height: 60px;"></a></td>
         <td>[joyful]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[joyful]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis hehe" src="./static/hehe.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="hehe.html" class="emoji-link"><img alt="tiktok emojis hehe" src="./static/hehe.png" style="width: 60px; height: 60px;"></a></td>
         <td>[hehe]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[hehe]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis slap" src="./static/slap.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="slap.html" class="emoji-link"><img alt="tiktok emojis slap" src="./static/slap.png" style="width: 60px; height: 60px;"></a></td>
         <td>[slap]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[slap]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis tears" src="./static/tears.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="tears.html" class="emoji-link"><img alt="tiktok emojis tears" src="./static/tears.png" style="width: 60px; height: 60px;"></a></td>
         <td>[tears]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[tears]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis stun" src="./static/stun.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="stun.html" class="emoji-link"><img alt="tiktok emojis stun" src="./static/stun.png" style="width: 60px; height: 60px;"></a></td>
         <td>[stun]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[stun]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis cute" src="./static/cute.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="cute.html" class="emoji-link"><img alt="tiktok emojis cute" src="./static/cute.png" style="width: 60px; height: 60px;"></a></td>
         <td>[cute]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[cute]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis blink" src="./static/blink.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="blink.html" class="emoji-link"><img alt="tiktok emojis blink" src="./static/blink.png" style="width: 60px; height: 60px;"></a></td>
         <td>[blink]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[blink]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis disdain" src="./static/disdain.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="disdain.html" class="emoji-link"><img alt="tiktok emojis disdain" src="./static/disdain.png" style="width: 60px; height: 60px;"></a></td>
         <td>[disdain]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[disdain]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis astonish" src="./static/astonish.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="astonish.html" class="emoji-link"><img alt="tiktok emojis astonish" src="./static/astonish.png" style="width: 60px; height: 60px;"></a></td>
         <td>[astonish]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[astonish]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis rage" src="./static/rage.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="rage.html" class="emoji-link"><img alt="tiktok emojis rage" src="./static/rage.png" style="width: 60px; height: 60px;"></a></td>
         <td>[rage]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[rage]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis cool" src="./static/cool.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="cool.html" class="emoji-link"><img alt="tiktok emojis cool" src="./static/cool.png" style="width: 60px; height: 60px;"></a></td>
         <td>[cool]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[cool]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis excited" src="./static/excited.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="excited.html" class="emoji-link"><img alt="tiktok emojis excited" src="./static/excited.png" style="width: 60px; height: 60px;"></a></td>
         <td>[excited]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[excited]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis proud" src="./static/proud.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="proud.html" class="emoji-link"><img alt="tiktok emojis proud" src="./static/proud.png" style="width: 60px; height: 60px;"></a></td>
         <td>[proud]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[proud]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis smileface" src="./static/smileface.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="smileface.html" class="emoji-link"><img alt="tiktok emojis smileface" src="./static/smileface.png" style="width: 60px; height: 60px;"></a></td>
         <td>[smileface]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[smileface]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis evil" src="./static/evil.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="evil.html" class="emoji-link"><img alt="tiktok emojis evil" src="./static/evil.png" style="width: 60px; height: 60px;"></a></td>
         <td>[evil]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[evil]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis angel" src="./static/angel.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="angel.html" class="emoji-link"><img alt="tiktok emojis angel" src="./static/angel.png" style="width: 60px; height: 60px;"></a></td>
         <td>[angel]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[angel]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis laugh" src="./static/laugh.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="laugh.html" class="emoji-link"><img alt="tiktok emojis laugh" src="./static/laugh.png" style="width: 60px; height: 60px;"></a></td>
         <td>[laugh]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[laugh]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis pride" src="./static/pride.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="pride.html" class="emoji-link"><img alt="tiktok emojis pride" src="./static/pride.png" style="width: 60px; height: 60px;"></a></td>
         <td>[pride]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[pride]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis nap" src="./static/nap.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="nap.html" class="emoji-link"><img alt="tiktok emojis nap" src="./static/nap.png" style="width: 60px; height: 60px;"></a></td>
         <td>[nap]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[nap]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis loveface" src="./static/loveface.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="loveface.html" class="emoji-link"><img alt="tiktok emojis loveface" src="./static/loveface.png" style="width: 60px; height: 60px;"></a></td>
         <td>[loveface]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[loveface]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis awkward" src="./static/awkward.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="awkward.html" class="emoji-link"><img alt="tiktok emojis awkward" src="./static/awkward.png" style="width: 60px; height: 60px;"></a></td>
         <td>[awkward]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[awkward]')">Copy</button></td>
       </tr>
       <tr>
-        <td><img alt="tiktok emojis shock" src="./static/shock.png" style="width: 60px; height: 60px;"></td>
+        <td><a href="shock.html" class="emoji-link"><img alt="tiktok emojis shock" src="./static/shock.png" style="width: 60px; height: 60px;"></a></td>
         <td>[shock]</td>
         <td><button class="copy-btn" onclick="copyToClipboard(this, '[shock]')">Copy</button></td>
       </tr>
     </tbody>
   </table>
+
+  <!-- 工具展示区域 -->
+  <div class="tools-showcase">
+    <h2>🚀 TikTok Emoji Tools <span class="new-badge">NEW</span></h2>
+    <p>Discover our interactive tools to enhance your TikTok emoji experience!</p>
+    
+    <div class="tools-grid">
+      <a href="tiktok-emoji-quiz.html" class="tool-card">
+        <span class="tool-icon">🧠</span>
+        <div class="tool-title">Emoji Quiz</div>
+        <div class="tool-description">Test your knowledge of TikTok emojis with our fun interactive quiz</div>
+      </a>
+      
+      <a href="tiktok-emoji-maker.html" class="tool-card">
+        <span class="tool-icon">🎨</span>
+        <div class="tool-title">Emoji Maker</div>
+        <div class="tool-description">Create custom emoji combinations and save your favorites</div>
+      </a>
+      
+      <a href="tiktok-emoji-memes.html" class="tool-card">
+        <span class="tool-icon">😂</span>
+        <div class="tool-title">Emoji Memes</div>
+        <div class="tool-description">Explore viral emoji memes and funny combinations</div>
+      </a>
+      
+      <a href="tiktok-emoji-trends.html" class="tool-card">
+        <span class="tool-icon">📈</span>
+        <div class="tool-title">Emoji Trends</div>
+        <div class="tool-description">Stay updated with the latest trending emojis and analytics</div>
+      </a>
+    </div>
+  </div>
+
   <script>
     function copyToClipboard(button, text) {
       navigator.clipboard.writeText(text).then(function() {
@@ -413,7 +544,7 @@
     }
   </script>
   <footer>
-    <p>&copy; 2024 TikTok Emojis List. All rights reserved.</p>
+    <p>&copy; 2025 TikTok Emojis List. All rights reserved.</p>
     <p>Created by <a href="https://tiktok-emojis.com" target="_blank">tiktok-emojis.com</a></p>
     <p>
       <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> | 
